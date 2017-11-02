@@ -5,3 +5,4 @@ echo "Running Main-Class $MAIN_CLASS"
 echo -n "With drivers:"
 ls -Ax $DRIVER_PATH | sed -e 's/  */, /g'
 #exec java -cp *:$DRIVER_PATH* $MAIN_CLASS -o /output "$@"  && tail -f /dev/null
+tail -f /dev/null
