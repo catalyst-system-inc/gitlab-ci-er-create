@@ -6,6 +6,8 @@ MAINTAINER toshi <toshi@toshi.click>
 ENV MYSQL_DRIVER_URL http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.42/mysql-connector-java-5.1.42.jar
 ENV PG_DRIVER_URL http://search.maven.org/remotecontent?filepath=org/postgresql/postgresql/42.1.1.jre7/postgresql-42.1.1.jre7.jar
 ENV APP_URL https://github.com/schemaspy/schemaspy/releases/download/v6.0.0-rc1/schemaspy-6.0.0-rc1.jar
+ENV　LANG　ja_JP.UTF-8
+ENV TZ Asia/Tokyo
 
 WORKDIR /
 RUN apk --update add graphviz ttf-dejavu curl postgresql-client postgresql-dev && \
