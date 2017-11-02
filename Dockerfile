@@ -5,5 +5,4 @@ FROM schemaspy/schemaspy:snapshot
 USER root
 ADD entrypoint.sh /
 RUN chmod 755 /entrypoint.sh
-USER java
 WORKDIR /
