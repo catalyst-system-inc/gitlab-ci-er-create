@@ -8,7 +8,7 @@ ENV PG_DRIVER_URL http://search.maven.org/remotecontent?filepath=org/postgresql/
 ENV APP_URL https://github.com/schemaspy/schemaspy/releases/download/v6.0.0-rc1/schemaspy-6.0.0-rc1.jar
 
 WORKDIR /
-RUN apk --update add graphviz ttf-dejavu curl postgresql-client postgresql-dev gzip && \
+RUN apk --update add graphviz ttf-dejavu curl postgresql-client postgresql-dev gzip zip && \
     apk --update add --virtual .builddep tzdata wget libressl && \
     cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
     wget -O mysql-connector-java.jar ${MYSQL_DRIVER_URL} && \
