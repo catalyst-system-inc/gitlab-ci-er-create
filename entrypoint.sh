@@ -4,3 +4,4 @@ export MAIN_CLASS=$(unzip -p schemaspy*.jar META-INF/MANIFEST.MF | grep Main-Cla
 echo "Running Main-Class $MAIN_CLASS"
 echo -n "With drivers:"
 ls -Ax $DRIVER_PATH | sed -e 's/  */, /g'
+tail -f /dev/null
