@@ -1,13 +1,15 @@
-# schemaspy
-FROM schemaspy/schemaspy:snapshot
-#USER java
+FROM openjdk:8u121-jdk-alpine
+MAINTAINER tree <treetips555@gmail.com>
 
-USER root
-RUN apk --update upgrade && apk add postgresql-client postgresql-dev
+ENV DRIVER_URL http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.42/mysql-connector-java-5.1.42.jar
+ENV APP_URL https://github.com/schemaspy/schemaspy/releases/download/v6.0.0-rc1/schemaspy-6.0.0-rc1.jar
 
-# 落ちないように細工
-ADD entrypoint.sh /
-RUN chmod 777 /entrypoint.sh
-ENTRYPOINT ./entrypoint.sh
-CMD tail -f /dev/null
+WORKDIR /app
 
+RUN apk --update add graphviz ttf-dejavu && \
+    apk --update add --virtual .builddep tzdata wget libressl && \
+    cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
+    wget -O mysql-connector-java.jar ${DRIVER_URL} && \
+    wget -O schemaspy.jar ${APP_URL} && \
+    apk del .builddep && \
+rm -rf /var/cache/apk/*
