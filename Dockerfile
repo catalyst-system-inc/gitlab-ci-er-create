@@ -16,6 +16,3 @@ RUN apk --update add graphviz ttf-dejavu curl postgresql-client postgresql-dev &
     wget -O schemaspy.jar ${APP_URL} && \
     apk del .builddep && \
 rm -rf /var/cache/apk/*
-
-ENV LANG　ja_JP.UTF-8
-ENV TZ Asia/Tokyo
